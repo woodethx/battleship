@@ -14,22 +14,23 @@ export class Gameboard{
         }
         return board;
     }
-    placeShip(x,y,length, vert){
-        const ship = new Ship(length);
+    placeShip(x,y,cells, hor){
+        const ship = new Ship(cells);
         this.ships.push(ship);
-        if(vert){
-            for (let i = y; i < ship.length+1; i++) {
+        console.log(this.ships);
+        if(hor){
+            for (let i = y; i < ship.cells+1; i++) {
                 this.board[x][i] = ship;
             }
         }
         else{
-            for (let i = x; i < ship.length+1; i++) {
+            for (let i = x; i < ship.cells+1; i++) {
                 this.board[i][y] = ship;
             }
         }
     }
     receiveAttack(x,y){
-        if(this.board[x][y] == "O" || this.board[x][y] == "X") return;
+        if(this.board[x][y] == "O" || this.board[x][y] == "X") return false;
         if(this.board[x][y] == "-"){
             this.board[x][y] = "O";
         }
@@ -37,6 +38,7 @@ export class Gameboard{
             this.board[x][y].hit();
             this.board[x][y] = "X";
         };
+        return true;
     };
     allSunk(){
         let allSunk = true;

@@ -1,3 +1,57 @@
+html, body{
+    height: 100%;
+}
+*{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header{
+    display: flex;
+    justify-content: center;
+    height: 10%;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    margin: 0 10vw;
+    text-align: center;
+}
 body{
-    background-color: purple;
+    background-color: rgb(0, 0, 53);
+}
+#boards{
+    display: flex;
+    gap: 10vw;
+}
+.leftBoard,.rightBoard{
+    height: 35vw;
+    width: 35vw;
+    border: solid white 1px;
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+}
+button{
+    cursor: pointer;
+}
+button:hover{
+    filter: grayscale(75%);
+    filter: sepia(60%);
+}
+.leftBoard > button, 
+.rightBoard > button{
+    background-color: aliceblue;
+    border: solid 1px black;
+}
+.miss{
+    background-color: white !important;
+    color: black;
+    font-size: 3rem;
+}
+.hit{
+    background-color: red !important;
+}
+.ship{
+    background-color: gray !important;
 }
