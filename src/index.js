@@ -6,8 +6,8 @@ import { Player } from "./player";
 const human = new Player("Ethan", false);
 const comp = new Player("Computer", true);
 
-human.board.placeShip(1,1,5,false);
-comp.board.placeShip(1,1,5,false);
+human.board.randomPlacement();
+comp.board.randomPlacement();
 
 function playRound(x,y){
     human.board.receiveAttack(x,y);
