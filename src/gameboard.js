@@ -29,12 +29,20 @@ export class Gameboard{
         }
     }
     receiveAttack(x,y){
+        if(this.board[x][y] == "O" || this.board[x][y] == "X") return;
         if(this.board[x][y] == "-"){
             this.board[x][y] = "O";
         }
         else{
             this.board[x][y].hit();
             this.board[x][y] = "X";
-        }
+        };
+    };
+    allSunk(){
+        let allSunk = true;
+        this.ships.forEach(ship => {
+            if(!ship.isSunk()) allSunk = false;
+        });
+        return allSunk;
     }
 }

@@ -25,4 +25,15 @@ describe('Gameboard module', () => {
         expect(board.board[1][1]).toBe("X");
         expect(board.board[1][2].hits).toBe(1);
     });
+    test('Gameboard allSunk() -false', () => {
+        const board = new Gameboard();
+        board.placeShip(1, 1, 5, true);
+        expect(board.allSunk()).toBe(false);
+    });
+    test('Gameboard allSunk() -true', () => {
+        const board = new Gameboard();
+        board.placeShip(1, 1, 1, true);
+        board.receiveAttack(1,1);
+        expect(board.allSunk()).toBe(true);
+    });
 });
